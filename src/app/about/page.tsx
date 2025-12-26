@@ -1,17 +1,15 @@
-import AboutHero from "@/src/components/about/AboutHero";
-import WhatWeDo from "@/src/components/about/WhatWeDo";
-import HowWeWork from "@/src/components/about/HowWeWork";
-import CareGroundedInValues from "@/src/components/about/CareGroundedInValues";
-import OurVision from "@/src/components/about/OurVision";
-import QuietReliableRespectful from "@/src/components/about/QuietReliableRespectful";
-import BePartOfChange from "@/src/components/shared/BePartOfChange";
-import GetInTouch from "@/src/components/shared/GetInTouch";
+import AboutHero from "@/components/about/AboutHero";
+import HowWeWork from "@/components/about/HowWeWork";
+import CareGroundedInValues from "@/components/about/CareGroundedInValues";
+import OurVision from "@/components/about/OurVision";
+import QuietReliableRespectful from "@/components/about/QuietReliableRespectful";
+import BePartOfChange from "@/components/shared/BePartOfChange";
+import GetInTouch from "@/components/shared/GetInTouch";
 
 const About = () => {
   return (
     <main>
       <AboutHero />
-      <WhatWeDo />
       <HowWeWork />
       <CareGroundedInValues />
       <OurVision />

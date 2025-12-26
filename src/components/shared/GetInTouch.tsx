@@ -7,7 +7,7 @@ export default function GetInTouch() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
           {/* Left Content */}
-          <div className="flex-1 max-w-[400px]">
+          <div className="flex-1 max-w-2xl">
             {/* Intro Section */}
             <div className="mb-12 md:mb-16">
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F47B20] mb-6">
@@ -70,8 +70,8 @@ export default function GetInTouch() {
           </div>
 
           {/* Right Content - Social Links */}
-          <div className="lg:pt-96 lg:pl-8">
-            <div className="space-y-6 md:space-y-8">
+          <div className="lg:pl-8 h-full flex self-end">
+            <div className="space-y-6 md:space-y-8 h-full flex flex-col">
               <Link
                 href="#"
                 className="flex items-center justify-between gap-4 text-gray-900 hover:text-[#F47B20] transition-colors group"

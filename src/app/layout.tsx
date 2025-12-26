@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Karla } from "next/font/google";
 import "./globals.css";
-import Header from "@/src/components/shared/Header";
-import Footer from "@/src/components/shared/Footer";
+import Header from "@/components/shared/Header";
+import Footer from "@/components/shared/Footer";
 
 const karla = Karla({
   variable: "--font-karla",

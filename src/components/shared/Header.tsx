@@ -3,8 +3,15 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+    const pathname = usePathname();
+
+    const isActive = (path: string) => {
+        return pathname === path;
+    };
+
     return (
         <header className="sticky top-0 z-50 bg-white shadow-sm">
             <div className="flex items-center justify-between px-4 md:px-6 lg:px-8 py-3 md:py-4 max-w-7xl mx-auto">
@@ -24,31 +31,51 @@ export default function Header() {
                 <nav className="hidden md:flex items-center gap-8 lg:gap-12">
                     <Link
                         href="/about"
-                        className="text-gray-600 font-normal text-base lg:text-lg tracking-wide hover:text-[#F47B20] transition-colors"
+                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                            isActive('/about')
+                                ? 'text-[#F47B20] font-bold'
+                                : 'text-gray-600 hover:text-[#F47B20]'
+                        }`}
                     >
-                        About
+                        About Us
                     </Link>
                     <Link
-                        href="/"
-                        className="text-gray-600 font-normal text-base lg:text-lg tracking-wide hover:text-[#F47B20] transition-colors"
+                        href="/donation"
+                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                            isActive('/donation')
+                                ? 'text-[#F47B20] font-bold'
+                                : 'text-gray-600 hover:text-[#F47B20]'
+                        }`}
                     >
                         Donation
                     </Link>
                     <Link
-                        href="/"
-                        className="text-gray-600 font-normal text-base lg:text-lg tracking-wide hover:text-[#F47B20] transition-colors"
+                        href="/our-model"
+                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                            isActive('/our-model')
+                                ? 'text-[#F47B20] font-bold'
+                                : 'text-gray-600 hover:text-[#F47B20]'
+                        }`}
                     >
                         Our Model
                     </Link>
                     <Link
-                        href="/"
-                        className="text-gray-600 font-normal text-base lg:text-lg tracking-wide hover:text-[#F47B20] transition-colors"
+                        href="/impact"
+                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                            isActive('/impact')
+                                ? 'text-[#F47B20] font-bold'
+                                : 'text-gray-600 hover:text-[#F47B20]'
+                        }`}
                     >
                         Impact
                     </Link>
                     <Link
-                        href="/"
-                        className="text-gray-600 font-normal text-base lg:text-lg tracking-wide hover:text-[#F47B20] transition-colors"
+                        href="/get-involved"
+                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                            isActive('/get-involved')
+                                ? 'text-[#F47B20] font-bold'
+                                : 'text-gray-600 hover:text-[#F47B20]'
+                        }`}
                     >
                         Get Involved
                     </Link>

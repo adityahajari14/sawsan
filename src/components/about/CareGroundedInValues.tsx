@@ -21,22 +21,22 @@ const CheckIcon = () => (
 );
 
 const values = [
-  "Dignity first in every interaction",
-  "Listening matters care begins by being heard",
-  "Human before system trust before efficiency",
-  "Responsible growth expand only when quality can be protected"
+  { text: "Dignity first", rest: " in every interaction" },
+  { text: "Listening matters", rest: " care begins by being heard" },
+  { text: "Human before system", rest: " trust before efficiency" },
+  { text: "Responsible growth", rest: " expand only when quality can be protected" }
 ];
 
 export default function CareGroundedInValues() {
   return (
     <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16 xl:gap-20">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
           {/* Left Column */}
           <div className="flex-1 max-w-2xl">
             <div className="flex flex-col gap-8 md:gap-12">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
-                Care, Grounded in Values
+                Care, Grounded in <span className="text-[#F47B20]">Values</span>
               </h2>
               <p className="text-lg md:text-xl lg:text-2xl text-black leading-relaxed">
                 Everything we do is rooted in respect for the people we serve. These principles guide our care, our presence with patients, and our growth ensuring compassion, trust, and responsibility in every decision.
@@ -48,12 +48,13 @@ export default function CareGroundedInValues() {
           <div className="flex-1 max-w-2xl">
             <div className="flex flex-col gap-6 md:gap-8">
               {values.map((value, index) => (
-                <div key={index} className="flex items-start gap-6 md:gap-7">
+                <div key={index} className="flex items-start gap-6">
                   <div className="flex-shrink-0 mt-1">
                     <CheckIcon />
                   </div>
-                  <p className="text-lg md:text-xl lg:text-2xl font-bold text-black leading-relaxed">
-                    {value}
+                  <p className="text-lg md:text-xl lg:text-2xl leading-relaxed">
+                    <span className="font-bold text-[#F47B20]">{value.text}</span>
+                    <span className="text-black">{value.rest}</span>
                   </p>
                 </div>
               ))}

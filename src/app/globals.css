@@ -18,3 +18,44 @@ body {
   color: var(--foreground);
   font-family: var(--font-karla), Arial, Helvetica, sans-serif;
 }
+
+.buttonBorder {
+  background: linear-gradient(140deg, #ffffff 10%, #F15A24 15%, #F15A24 75%, #ffffff 90%);
+}
+
+.right-path {
+  clip-path: shape(
+    from 6.67% 10%, 
+    line to 46.67% 10%, 
+    arc to 53.33% 5% of 6.67% 5%,
+    line to 53.33% 5%,
+    arc to 60% 0% of 6.67% 5% cw,
+    line to 93.33% 0%,
+    arc to 100% 5% of 6.67% 5% cw,
+    line to 100% 95%,
+    arc to 93.33% 100% of 6.67% 5% cw,
+    line to 6.67% 100%,
+    arc to 0% 95% of 6.67% 5% cw,
+    line to 0% 15%,
+    arc to 6.67% 10% of 6.67% 5% cw,
+    close
+);
+}
+.left-path {
+  clip-path: shape(
+    from 93.33% 10%, 
+    line to 53.33% 10%, 
+    arc to 46.67% 5% of 6.67% 5% cw,
+    line to 46.67% 5%,
+    arc to 40% 0% of 6.67% 5%,
+    line to 6.67% 0%,
+    arc to 0% 5% of 6.67% 5%,
+    line to 0% 95%,
+    arc to 6.67% 100% of 6.67% 5%,
+    line to 93.33% 100%,
+    arc to 100% 95% of 6.67% 5%,
+    line to 100% 15%,
+    arc to 93.33% 10% of 6.67% 5%,
+    close
+);
+}
