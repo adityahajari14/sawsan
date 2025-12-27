@@ -1,6 +1,34 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.1,
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 60 
+  },
+  visible: (custom: number) => ({ 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.7,
+      delay: custom * 0.1,
+      ease: smoothEasing
+    }
+  })
+};
 
 const ArrowIcon = () => (
   <svg
@@ -29,8 +57,19 @@ export default function Hero() {
             </div>
             <p className="text-base md:text-lg lg:text-xl text-black text-center">We bring trusted, dignified healthcare directly into underserved Syrian communities, one booth, one volunteer, one doctor, one woman at a time.</p>
         </div>
-        <div className="flex flex-row gap-5 items-end justify-between -mt-12">
-            <div className="flex flex-col gap-6">
+        <motion.div 
+          className="flex flex-row gap-5 items-end justify-between -mt-12"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+            {/* Card Column 1 */}
+            <motion.div 
+              className="flex flex-col gap-6"
+              variants={cardVariants}
+              custom={0}
+            >
                 <div className="relative flex flex-col gap-8 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden left-path"> 
                     <div className='absolute inset-0 flex items-center justify-center pointer-events-none z-0'>
                         <div className='flex flex-col items-center justify-center gap-2 w-full h-full'>
@@ -47,13 +86,13 @@ export default function Hero() {
                     <div className="relative z-10 w-full">
                       <button className="group relative h-16 w-full rounded-full overflow-visible transition-all duration-300 ease-in-out cursor-pointer">
                         {/* Outer border layer */}
-                        <div className="absolute left-0 right-0 top-0 bottom-0 z-[1] rounded-full buttonBorder"></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 z-1 rounded-full buttonBorder"></div>
                         {/* Black inner border */}
-                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-[2] rounded-full m-[1.2px] bg-[#F15A24]"></div>
+                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-2 rounded-full m-[1.2px] bg-[#F15A24]"></div>
                         {/* Gradient background with shadows */}
-                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-[3] rounded-full m-[1.2px] bg-[rgba(241,90,36,0.2)] group-hover:bg-[rgba(241,90,36,0.9)] transition-all duration-300 shadow-[0_16.455px_16.455px_0_rgba(0,0,0,0.25),250.932px_497.75px_156.318px_0_rgba(0,0,0,0.04),90.5px_176.886px_119.295px_0_rgba(0,0,0,0.10),8.227px_20.568px_49.364px_0_rgba(0,0,0,0.15)]"></div>
+                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-3 rounded-full m-[1.2px] bg-[rgba(241,90,36,0.2)] group-hover:bg-[rgba(241,90,36,0.9)] transition-all duration-300 shadow-[0_16.455px_16.455px_0_rgba(0,0,0,0.25),250.932px_497.75px_156.318px_0_rgba(0,0,0,0.04),90.5px_176.886px_119.295px_0_rgba(0,0,0,0.10),8.227px_20.568px_49.364px_0_rgba(0,0,0,0.15)]"></div>
                         {/* Content layer */}
-                        <div className="relative z-[4] h-full w-full flex items-center">
+                        <div className="relative z-4 h-full w-full flex items-center">
                           <p className="absolute left-4 top-1/2 -translate-y-1/2 font-medium text-sm md:text-base leading-[1.4] text-white whitespace-nowrap tracking-wide">
                             Join the movement
                           </p>
@@ -71,8 +110,14 @@ export default function Hero() {
                     More intimate
                   </p>
                 </div>
-            </div>
-            <div className='flex flex-col justify-end'>
+            </motion.div>
+
+            {/* Card Column 2 */}
+            <motion.div 
+              className='flex flex-col justify-end'
+              variants={cardVariants}
+              custom={1}
+            >
                 <div className="relative flex flex-col gap-6 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden left-path">
                     <Image 
                       src="/hero-img1.webp" 
@@ -85,15 +130,26 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-black/50 z-0" style={{ borderRadius: "inherit" }}></div>
                     <div className="relative z-10 text-lg md:text-xl font-semibold">Millions of women lack access to female-only health spaces</div>
                 </div>
-            </div>
-            <div>
+            </motion.div>
+
+            {/* Card Column 3 */}
+            <motion.div
+              variants={cardVariants}
+              custom={2}
+            >
                 <div className="bg-[#F15A24] overflow-hidden relative rounded-4xl w-full h-44 md:h-48 max-w-70 flex items-center justify-center px-10">
                   <p className="font-bold text-2xl text-white text-left">
                     Care, With Dignity at the Center
                   </p>
                 </div>
-            </div>
-            <div className='flex flex-col justify-end'>
+            </motion.div>
+
+            {/* Card Column 4 */}
+            <motion.div 
+              className='flex flex-col justify-end'
+              variants={cardVariants}
+              custom={1}
+            >
                 <div className="relative flex flex-col gap-6 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden right-path">
                     <Image 
                       src="/hero-img2.webp" 
@@ -106,8 +162,14 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-black/50 z-0" style={{ borderRadius: "inherit" }}></div>
                     <div className="relative z-10 text-lg md:text-xl font-semibold">One missed visit can be fatal</div>
                 </div>
-            </div>
-            <div className="flex flex-col gap-5">
+            </motion.div>
+
+            {/* Card Column 5 */}
+            <motion.div 
+              className="flex flex-col gap-5"
+              variants={cardVariants}
+              custom={0}
+            >
                 <div className="relative flex flex-col gap-6 items-center justify-between pt-20 bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden right-path"> 
                     <div className='absolute inset-0 flex items-center justify-center pointer-events-none z-0'>
                         <div className='flex flex-col items-center justify-center gap-2 w-full h-full'>
@@ -133,13 +195,13 @@ export default function Hero() {
                     <div className="relative z-10 w-full">
                       <button className="group relative h-16 w-full rounded-full overflow-visible transition-all duration-300 ease-in-out cursor-pointer">
                         {/* Outer border layer */}
-                        <div className="absolute left-0 right-0 top-0 bottom-0 z-[1] rounded-full buttonBorder"></div>
+                        <div className="absolute left-0 right-0 top-0 bottom-0 z-1 rounded-full buttonBorder"></div>
                         {/* Black inner border */}
-                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-[2] rounded-full m-[1.2px] bg-[#F15A24]"></div>
+                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-2 rounded-full m-[1.2px] bg-[#F15A24]"></div>
                         {/* Gradient background with shadows */}
-                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-[3] rounded-full m-[1.2px] bg-[rgba(241,90,36,0.2)] group-hover:bg-[rgba(241,90,36,0.9)] transition-all duration-300 shadow-[0_16.455px_16.455px_0_rgba(0,0,0,0.25),250.932px_497.75px_156.318px_0_rgba(0,0,0,0.04),90.5px_176.886px_119.295px_0_rgba(0,0,0,0.10),8.227px_20.568px_49.364px_0_rgba(0,0,0,0.15)]"></div>
+                        <div className="absolute left-[0.3px] right-[0.3px] top-[0.3px] bottom-[0.3px] z-3 rounded-full m-[1.2px] bg-[rgba(241,90,36,0.2)] group-hover:bg-[rgba(241,90,36,0.9)] transition-all duration-300 shadow-[0_16.455px_16.455px_0_rgba(0,0,0,0.25),250.932px_497.75px_156.318px_0_rgba(0,0,0,0.04),90.5px_176.886px_119.295px_0_rgba(0,0,0,0.10),8.227px_20.568px_49.364px_0_rgba(0,0,0,0.15)]"></div>
                         {/* Content layer */}
-                        <div className="relative z-[4] h-full w-full flex items-center">
+                        <div className="relative z-4 h-full w-full flex items-center">
                           <p className="absolute left-4 top-1/2 -translate-y-1/2 font-medium text-sm md:text-base leading-[1.4] text-white whitespace-nowrap tracking-wide">
                           View all
                           </p>
@@ -157,8 +219,8 @@ export default function Hero() {
                   Less institutional.
                   </p>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
       </div>
     </section>
   );

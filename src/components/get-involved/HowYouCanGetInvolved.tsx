@@ -160,7 +160,6 @@ export default function HowYouCanGetInvolved() {
                       >
                         <span>View more</span>
                         <motion.div 
-                          className="-rotate-45"
                           whileHover={{ x: 2, y: -2 }}
                           transition={{ duration: 0.2 }}
                         >
@@ -216,17 +215,9 @@ export default function HowYouCanGetInvolved() {
                               </p>
 
                               {/* CTA */}
-                              <motion.div
-                                whileHover={{ x: 4 }}
-                                transition={{ duration: 0.2, ease: gentleEasing }}
-                                className="flex items-center gap-2.5 font-medium text-base text-white mt-auto"
-                              >
-                                <span>{card.ctaText}</span>
-                                <motion.div 
-                                  className="-rotate-45"
-                                  whileHover={{ x: 2, y: -2 }}
-                                  transition={{ duration: 0.2 }}
-                                >
+                              <div className="flex items-center font-medium text-base text-white mt-auto cursor-pointer group relative overflow-hidden h-[28px]">
+                                <div className="flex items-center gap-2.5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full group-hover:opacity-0">
+                                  <span>{card.ctaText}</span>
                                   <svg
                                     width="20"
                                     height="20"
@@ -237,8 +228,22 @@ export default function HowYouCanGetInvolved() {
                                   >
                                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                                   </svg>
-                                </motion.div>
-                              </motion.div>
+                                </div>
+                                <div className="absolute inset-0 flex items-center gap-2.5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                                  <span>{card.ctaText}</span>
+                                  <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    className="transform rotate-45"
+                                  >
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                  </svg>
+                                </div>
+                              </div>
                             </motion.div>
 
                             {/* Right Column - Expanded Details */}
@@ -304,19 +309,18 @@ export default function HowYouCanGetInvolved() {
 
                             {/* CTA */}
                             <motion.div
-                              animate={{
-                                color: isHovered ? "#FFFFFF" : "#F47B20",
-                              }}
-                              transition={{ duration: 0.3, ease: gentleEasing }}
-                              whileHover={{ x: 4 }}
-                              className="flex items-center gap-2.5 font-medium text-base mt-auto"
+                              className="cursor-pointer relative overflow-hidden h-[28px]"
                             >
-                              <span>{card.ctaText}</span>
                               <motion.div 
-                                className="-rotate-45"
-                                whileHover={{ x: 2, y: -2 }}
-                                transition={{ duration: 0.2 }}
+                                animate={{
+                                  y: isHovered ? "-100%" : "0%",
+                                  opacity: isHovered ? 0 : 1,
+                                  color: isHovered ? "#FFFFFF" : "#F47B20",
+                                }}
+                                transition={{ duration: 0.35, ease: gentleEasing }}
+                                className="flex items-center gap-2.5 font-medium text-base"
                               >
+                                <span>{card.ctaText}</span>
                                 <svg
                                   width="20"
                                   height="20"
@@ -324,6 +328,27 @@ export default function HowYouCanGetInvolved() {
                                   fill="none"
                                   stroke="currentColor"
                                   strokeWidth="2"
+                                >
+                                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                                </svg>
+                              </motion.div>
+                              <motion.div 
+                                animate={{
+                                  y: isHovered ? "0%" : "100%",
+                                  opacity: isHovered ? 1 : 0,
+                                }}
+                                transition={{ duration: 0.35, ease: gentleEasing }}
+                                className="absolute inset-0 flex items-center gap-2.5 font-medium text-base text-white"
+                              >
+                                <span>{card.ctaText}</span>
+                                <svg
+                                  width="20"
+                                  height="20"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  className="transform rotate-45"
                                 >
                                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                                 </svg>

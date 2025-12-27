@@ -1,4 +1,9 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
 const stats = [
   {
@@ -29,6 +34,30 @@ const stats = [
   }
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: -30 
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: smoothEasing
+    }
+  }
+};
+
 export default function WhyThisMattersSection() {
   return (
     <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
@@ -42,11 +71,18 @@ export default function WhyThisMattersSection() {
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 gap-3.5 ">
+            <motion.div 
+              className="grid grid-cols-1 gap-3.5"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {stats.map((stat, index) => (
-                <div 
+                <motion.div 
                   key={index} 
                   className="border border-[#F47B20] p-3 md:p-4 lg:p-5 rounded-sm"
+                  variants={cardVariants}
                 >
                   <div className="mb-1">
                     <p className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#F47B20] leading-tight">
@@ -60,9 +96,9 @@ export default function WhyThisMattersSection() {
                       <p>{stat.description}</p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column - Text */}

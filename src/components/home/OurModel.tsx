@@ -191,8 +191,8 @@ export default function OurModel() {
                               xmlns="http://www.w3.org/2000/svg"
                               className={`transform -rotate-45 ${
                                 isDigital 
-                                  ? 'group-hover:stroke-white stroke-gray-900 transition-colors'
-                                  : 'group-hover:stroke-[#F47B20] stroke-white transition-colors'
+                                  ? 'group-hover:stroke-white stroke-gray-900 transition-colors group-hover:rotate-[0deg]'
+                                  : 'group-hover:stroke-[#F47B20] stroke-white transition-colors group-hover:rotate-[0deg]'
                               }`}
                             >
                               <path

@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
+const gentleEasing: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+
 interface FormData {
   firstName: string;
   lastName: string;
@@ -12,6 +15,23 @@ interface FormData {
   phone: string;
   joinAs: string[];
 }
+
+const formVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 40,
+    scale: 0.96
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: gentleEasing
+    }
+  }
+};
 
 export default function GetInvolvedForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -43,10 +63,10 @@ export default function GetInvolvedForm() {
     <section className="px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          variants={formVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
           className="bg-white border-2 border-[#F47B20] rounded-2xl p-6 md:p-10 lg:p-12 shadow-lg"
         >
           {/* Form Title */}
@@ -68,7 +88,7 @@ export default function GetInvolvedForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, firstName: e.target.value })
                   }
-                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20]"
+                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] transition-colors"
                 />
               </div>
               <div className="flex-1">
@@ -79,7 +99,7 @@ export default function GetInvolvedForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, lastName: e.target.value })
                   }
-                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] w-full mt-7"
+                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] w-full mt-7 transition-colors"
                 />
               </div>
             </div>
@@ -93,7 +113,7 @@ export default function GetInvolvedForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, location: e.target.value })
                   }
-                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] w-full appearance-none"
+                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] w-full appearance-none transition-colors"
                 >
                   <option value="Syria">Syria</option>
                   <option value="Saudi Arabia">Saudi Arabia</option>
@@ -126,7 +146,7 @@ export default function GetInvolvedForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20]"
+                className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] transition-colors"
               />
             </div>
 
@@ -141,7 +161,7 @@ export default function GetInvolvedForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, phoneCode: e.target.value })
                   }
-                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] w-32"
+                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] w-32 transition-colors"
                 >
                   <option value="+963">+963</option>
                   <option value="+966">+966</option>
@@ -154,7 +174,7 @@ export default function GetInvolvedForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] flex-1"
+                  className="bg-white border border-gray-400 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#F47B20] flex-1 transition-colors"
                 />
               </div>
             </div>
@@ -183,8 +203,12 @@ export default function GetInvolvedForm() {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ 
+                scale: 1.03,
+                boxShadow: "0 8px 20px rgba(244, 123, 32, 0.25)"
+              }}
               whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2, ease: smoothEasing }}
               className="bg-[#F47B20] text-white font-bold py-3 px-6 rounded-md flex items-center gap-2 self-start hover:bg-[#E85A28] transition-colors"
             >
               <span>Submit</span>

@@ -1,11 +1,41 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
 const ArrowIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transform rotate-[-45deg] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 30 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: smoothEasing
+    }
+  }
+};
 
 const cards = [
   {
@@ -60,11 +90,23 @@ export default function HowWeWork() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             {cards.map((card, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="bg-white border border-[#F47B20] rounded-[25px] p-6 flex flex-col justify-between min-h-[420px]"
+                className="bg-white border border-[#F47B20] rounded-[25px] p-6 flex flex-col justify-between min-h-[420px] transition-all duration-300"
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -6,
+                  boxShadow: "0 12px 24px rgba(244, 123, 32, 0.15)",
+                  transition: { duration: 0.3, ease: smoothEasing }
+                }}
               >
                 <div className="flex flex-col gap-6">
                   <p className="text-[42px] font-bold text-black leading-none">
@@ -80,18 +122,28 @@ export default function HowWeWork() {
                 </div>
                 <Link
                   href="#"
-                  className="flex items-center gap-2.5 text-[#F47B20] hover:text-[#E85A28] transition-colors group mt-6"
+                  className="text-[#F47B20] mt-6 group relative overflow-hidden h-[28px] inline-block"
                 >
-                  <span className="text-[17px] font-medium leading-[24px] tracking-[-0.7px]">
-                    {card.link}
-                  </span>
-                  <div className="flex-shrink-0">
-                    <ArrowIcon />
+                  <div className="flex items-center gap-2.5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full group-hover:opacity-0">
+                    <span className="text-[17px] font-medium leading-[24px] tracking-[-0.7px]">
+                      {card.link}
+                    </span>
+                    <div className="flex-shrink-0">
+                      <ArrowIcon />
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 flex items-center gap-2.5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                    <span className="text-[17px] font-medium leading-[24px] tracking-[-0.7px]">
+                      {card.link}
+                    </span>
+                    <div className="flex-shrink-0 transform rotate-45">
+                      <ArrowIcon />
+                    </div>
                   </div>
                 </Link>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

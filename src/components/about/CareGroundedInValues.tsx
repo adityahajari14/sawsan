@@ -1,5 +1,10 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
 const CheckIcon = () => (
   <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,6 +32,30 @@ const values = [
   { text: "Responsible growth", rest: " expand only when quality can be protected" }
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: -20 
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: smoothEasing
+    }
+  }
+};
+
 export default function CareGroundedInValues() {
   return (
     <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
@@ -45,10 +74,20 @@ export default function CareGroundedInValues() {
           </div>
 
           {/* Right Column - Values List */}
-          <div className="flex-1 max-w-2xl">
+          <motion.div 
+            className="flex-1 max-w-2xl"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
             <div className="flex flex-col gap-5 md:gap-6">
               {values.map((value, index) => (
-                <div key={index} className="flex items-start gap-5">
+                <motion.div 
+                  key={index} 
+                  className="flex items-start gap-5"
+                  variants={itemVariants}
+                >
                   <div className="flex-shrink-0 mt-1">
                     <CheckIcon />
                   </div>
@@ -56,13 +95,12 @@ export default function CareGroundedInValues() {
                     <span className="font-bold text-[#F47B20]">{value.text}</span>
                     <span className="text-black">{value.rest}</span>
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
-

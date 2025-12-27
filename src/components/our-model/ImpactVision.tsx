@@ -1,4 +1,10 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
+const gentleEasing: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
 const impactItems = [
   {
@@ -23,6 +29,49 @@ const impactItems = [
   }
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.15
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { 
+    opacity: 0, 
+    scale: 0.92,
+    y: 30
+  },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: gentleEasing
+    }
+  }
+};
+
+const numberVariants = {
+  hidden: { 
+    opacity: 0,
+    scale: 0.5
+  },
+  visible: { 
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+      ease: smoothEasing
+    }
+  }
+};
+
 export default function ImpactVision() {
   return (
     <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
@@ -34,24 +83,53 @@ export default function ImpactVision() {
           </h2>
 
           {/* Flex Container */}
-          <div className="flex flex-wrap justify-center gap-6 lg:gap-10">
+          <motion.div 
+            className="flex flex-wrap justify-center gap-6 lg:gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
             {impactItems.map((item, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="border border-[#F47B20] p-5 flex flex-col gap-5 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33%-1.5rem)]"
+                className="border-2 border-[#F47B20] p-5 flex flex-col gap-5 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33%-1.5rem)] rounded-lg"
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -8,
+                  scale: 1.02,
+                  borderColor: '#E85A28',
+                  borderWidth: '3px',
+                  boxShadow: "0 12px 28px rgba(244, 123, 32, 0.18)",
+                  transition: { 
+                    duration: 0.35,
+                    ease: gentleEasing
+                  }
+                }}
               >
                 {/* Number */}
-                <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFC396] leading-none">
+                <motion.p 
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFC396] leading-none"
+                  variants={numberVariants}
+                  whileHover={{ 
+                    scale: 1.05,
+                    color: '#F47B20',
+                    transition: { 
+                      duration: 0.3,
+                      ease: smoothEasing
+                    }
+                  }}
+                >
                   {item.number}
-                </p>
+                </motion.p>
 
                 {/* Title */}
                 <p className="text-lg md:text-xl lg:text-2xl font-bold text-[#F47B20] leading-tight">
                   {item.title}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

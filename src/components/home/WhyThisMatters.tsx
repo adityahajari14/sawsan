@@ -124,11 +124,19 @@ export default function WhyThisMatters() {
           </h2>
           <Link
             href="#"
-            className="inline-flex items-center gap-2 text-[#F47B20] hover:text-[#E85A28] transition-colors text-base md:text-lg font-medium group"
+            className="inline-flex items-center gap-3 text-[#F47B20] hover:text-[#E85A28] transition-colors group relative overflow-hidden h-[32px]"
           >
-            <span className="border-b border-[#F47B20] group-hover:border-[#E85A28]">
-              Learn more
-            </span>
+            <div className="flex items-center gap-3 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full group-hover:opacity-0">
+              <span className="text-base md:text-lg font-medium">
+                Learn more
+              </span>
+            </div>
+            
+            <div className="absolute inset-0 flex items-center gap-3 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+              <span className="text-base md:text-lg font-medium">
+                Learn more
+              </span>
+            </div>
           </Link>
         </div>
 

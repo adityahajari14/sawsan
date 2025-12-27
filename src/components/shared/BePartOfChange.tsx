@@ -2,7 +2,9 @@
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
-import { useScroll, useTransform, useMotionValueEvent, MotionValue } from 'framer-motion';
+import { useScroll, useTransform, useMotionValueEvent, MotionValue, motion } from 'framer-motion';
+
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
 function HeadingText({ 
   words, 
@@ -38,6 +40,37 @@ function HeadingText({
   );
 }
 
+const textVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 20 
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: smoothEasing
+    }
+  }
+};
+
+const linkVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: -20 
+  },
+  visible: (custom: number) => ({ 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.5,
+      delay: custom * 0.1,
+      ease: smoothEasing
+    }
+  })
+};
+
 export default function BePartOfChange() {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
@@ -72,31 +105,52 @@ export default function BePartOfChange() {
                 highlightedWords={headingHighlightedWords}
               />
             </h2>
-            <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed max-w-[623px]">
+            <motion.p 
+              className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed max-w-[623px]"
+              variants={textVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               Whether you give your time, resources, or reach, you help bring safe, dignified healthcare to women who need it most.
-            </p>
+            </motion.p>
           </div>
 
           {/* Right Column - CTA Links */}
-          <div className="flex flex-col self-end gap-5 lg:gap-6 lg:min-w-[257px]">
-            <Link
-              href="#"
-              className="text-[#F47B20] hover:text-[#E85A28] transition-colors text-base md:text-lg font-medium group inline-block"
-            >
-              <span className="border-b border-[#F47B20] group-hover:border-[#E85A28]">
-                Donate Now
-              </span>
-            </Link>
+          <motion.div 
+            className="flex flex-col self-end gap-5 lg:gap-6 lg:min-w-[257px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <motion.div variants={linkVariants} custom={0}>
+              <Link
+                href="#"
+                className="text-[#F47B20] hover:text-[#E85A28] transition-colors text-base md:text-lg font-medium group inline-block relative overflow-hidden h-[28px]"
+              >
+                <div className="transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full group-hover:opacity-0">
+                  Donate Now
+                </div>
+                <div className="absolute inset-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                  Donate Now
+                </div>
+              </Link>
+            </motion.div>
             
-            <Link
-              href="#"
-              className="text-[#F47B20] hover:text-[#E85A28] transition-colors text-base md:text-lg font-medium group inline-block"
-            >
-              <span className="border-b border-[#F47B20] group-hover:border-[#E85A28]">
-                Partner With Us
-              </span>
-            </Link>
-          </div>
+            <motion.div variants={linkVariants} custom={1}>
+              <Link
+                href="#"
+                className="text-[#F47B20] hover:text-[#E85A28] transition-colors text-base md:text-lg font-medium group inline-block relative overflow-hidden h-[28px]"
+              >
+                <div className="transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full group-hover:opacity-0">
+                  Partner With Us
+                </div>
+                <div className="absolute inset-0 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                  Partner With Us
+                </div>
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

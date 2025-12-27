@@ -96,7 +96,7 @@ export default function Header() {
                             viewBox="0 0 16 13.3333"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="group-hover:translate-x-1 transition-transform duration-300"
+                            className=""
                         >
                             <path
                                 fillRule="evenodd"

@@ -180,27 +180,51 @@ export default function FounderSection() {
           <div className="max-w-5xl mx-auto">
             <Link
               href="#"
-              className="inline-flex items-center gap-3 text-[#F47B20] hover:text-[#E85A28] transition-colors group"
+              className="inline-flex items-center gap-3 text-[#F47B20] hover:text-[#E85A28] transition-colors group relative overflow-hidden h-[32px]"
             >
-              <span className="text-base md:text-lg font-medium border-b border-[#F47B20] group-hover:border-[#E85A28]">
-                Read full note
-              </span>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="transform rotate-[-45deg] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-              >
-                <path
-                  d="M7 17L17 7M17 7H7M17 7V17"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <div className="flex items-center gap-3 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-y-full group-hover:opacity-0">
+                <span className="text-base md:text-lg font-medium">
+                  Read full note
+                </span>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="transform transition-transform duration-500"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              
+              <div className="absolute inset-0 flex items-center gap-3 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="text-base md:text-lg font-medium">
+                  Read full note
+                </span>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="transform rotate-45 transition-transform duration-500"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
             </Link>
           </div>
         </div>
