@@ -3,23 +3,23 @@ import Link from 'next/link';
 
 export default function GetInTouch() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-12">
           {/* Left Content */}
           <div className="flex-1 max-w-2xl">
             {/* Intro Section */}
-            <div className="mb-12 md:mb-16">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F47B20] mb-6">
+            <div className="mb-10 md:mb-12">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20] mb-5">
                 Get in touch
               </h2>
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-900 leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-900 leading-relaxed">
                 Your voice matters. Contact us to learn more or get involved.
               </p>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-10 md:space-y-12">
+            <div className="space-y-8 md:space-y-10">
               {/* Email */}
               <div>
                 <p className="text-sm md:text-base text-gray-600 mb-4">Get in touch</p>
@@ -70,8 +70,8 @@ export default function GetInTouch() {
           </div>
 
           {/* Right Content - Social Links */}
-          <div className="lg:pl-8 h-full flex self-end">
-            <div className="space-y-6 md:space-y-8 h-full flex flex-col">
+          <div className="lg:pl-6 h-full flex self-end">
+            <div className="space-y-5 md:space-y-6 h-full flex flex-col">
               <Link
                 href="#"
                 className="flex items-center justify-between gap-4 text-gray-900 hover:text-[#F47B20] transition-colors group"

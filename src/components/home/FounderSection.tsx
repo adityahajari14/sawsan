@@ -73,11 +73,11 @@ function QuoteText({
   };
 
   return (
-    <div className="relative z-10 space-y-6 md:space-y-8">
-      <p className="text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-relaxed font-semibold">
+    <div className="relative z-10 space-y-5 md:space-y-6">
+      <p className="text-xl md:text-2xl lg:text-3xl xl:text-[36px] leading-relaxed font-semibold">
         {renderHighlightedText(words1, 0)}
       </p>
-      <p className="text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-relaxed font-semibold">
+      <p className="text-xl md:text-2xl lg:text-3xl xl:text-[36px] leading-relaxed font-semibold">
         {renderHighlightedText(words2, words1.length)}
       </p>
     </div>
@@ -125,12 +125,12 @@ export default function FounderSection() {
   );
 
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 md:mb-12">
           <h3 
             ref={headingRef}
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold relative"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold relative"
           >
             <HeadingText 
               words={headingWords} 
@@ -140,21 +140,21 @@ export default function FounderSection() {
         </div>
 
         {/* Main Content */}
-        <div className="space-y-8 md:space-y-12">
+        <div className="space-y-6 md:space-y-10">
           {/* Foundation Named Section */}
-          <div className="text-center space-y-3 md:space-y-4">
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-900">
+          <div className="text-center space-y-2 md:space-y-3">
+            <p className="text-base md:text-lg lg:text-xl text-gray-900">
               The foundation is named in memory of
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#F47B20]">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#F47B20]">
               Sawsan Mohammad Nizar Alakhras.
             </h2>
           </div>
 
           {/* Quote Section */}
-          <div ref={quoteRef} className="max-w-4xl mx-auto relative px-4 md:px-8 py-8 md:py-12">
+          <div ref={quoteRef} className="max-w-4xl mx-auto relative px-4 md:px-8 py-6 md:py-10">
             {/* Opening Quote */}
-            <div className="absolute -left-2 md:-left-4 top-0 text-[80px] md:text-[120px] lg:text-[130px] leading-none text-gray-400 font-karla">
+            <div className="absolute -left-2 md:-left-4 top-0 text-[60px] md:text-[90px] lg:text-[100px] leading-none text-gray-400 font-karla">
               &ldquo;
             </div>
 
@@ -166,7 +166,7 @@ export default function FounderSection() {
             />
 
             {/* Closing Quote */}
-            <div className="absolute -right-2 md:-right-4 bottom-0 text-[80px] md:text-[120px] lg:text-[130px] leading-none text-gray-400 font-karla">
+            <div className="absolute -right-2 md:-right-4 bottom-0 text-[60px] md:text-[90px] lg:text-[100px] leading-none text-gray-400 font-karla">
               &rdquo;
             </div>
           </div>

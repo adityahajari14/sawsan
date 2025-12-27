@@ -58,27 +58,27 @@ export default function BePartOfChange() {
   );
 
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-10">
           {/* Left Column - Text Content */}
           <div className="flex-1 max-w-[865px]">
             <h2 
               ref={headingRef}
-              className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8 md:mb-12"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 md:mb-10"
             >
               <HeadingText 
                 words={headingWords} 
                 highlightedWords={headingHighlightedWords}
               />
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-[623px]">
+            <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed max-w-[623px]">
               Whether you give your time, resources, or reach, you help bring safe, dignified healthcare to women who need it most.
             </p>
           </div>
 
           {/* Right Column - CTA Links */}
-          <div className="flex flex-col self-end gap-6 lg:gap-8 lg:min-w-[257px]">
+          <div className="flex flex-col self-end gap-5 lg:gap-6 lg:min-w-[257px]">
             <Link
               href="#"
               className="text-[#F47B20] hover:text-[#E85A28] transition-colors text-base md:text-lg font-medium group inline-block"

@@ -25,28 +25,28 @@ const impactItems = [
 
 export default function ImpactVision() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="space-y-12">
+        <div className="space-y-10">
           {/* Header */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black leading-tight">
             Our 12-Month Impact Vision
           </h2>
 
           {/* Flex Container */}
-          <div className="flex flex-wrap justify-center gap-8 lg:gap-12">
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-10">
             {impactItems.map((item, index) => (
               <div 
                 key={index}
-                className="border border-[#F47B20] p-6 flex flex-col gap-6 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33%-2rem)]"
+                className="border border-[#F47B20] p-5 flex flex-col gap-5 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33%-1.5rem)]"
               >
                 {/* Number */}
-                <p className="text-6xl md:text-7xl lg:text-8xl font-bold text-[#FFC396] leading-none">
+                <p className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#FFC396] leading-none">
                   {item.number}
                 </p>
 
                 {/* Title */}
-                <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#F47B20] leading-tight">
+                <p className="text-lg md:text-xl lg:text-2xl font-bold text-[#F47B20] leading-tight">
                   {item.title}
                 </p>
               </div>

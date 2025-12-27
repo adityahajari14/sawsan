@@ -61,26 +61,30 @@ const cardsData: CardData[] = [
   },
 ];
 
+// Refined easing curves for professional feel
+const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
+const gentleEasing: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
+
 export default function HowYouCanGetInvolved() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20] mb-8 md:mb-12"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: smoothEasing }}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F47B20] mb-6 md:mb-10"
         >
           How You Can Get Involved
         </motion.h2>
 
         {/* Cards Grid */}
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
+        <div className="flex flex-col lg:flex-row gap-5 md:gap-6">
           {cardsData.map((card, index) => {
             const isExpanded = expandedCard === card.id;
             const isOtherExpanded = expandedCard !== null && !isExpanded;
@@ -89,40 +93,46 @@ export default function HowYouCanGetInvolved() {
             return (
               <motion.div
                 key={card.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1, flex: { duration: 0.5, ease: "easeInOut" } }}
+                viewport={{ once: true, margin: "-30px" }}
                 onMouseEnter={() => setHoveredCard(card.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onClick={() =>
-                  setExpandedCard(isExpanded ? null : card.id)
-                }
-                className="relative max-h-[600px]"
+                onClick={() => setExpandedCard(isExpanded ? null : card.id)}
+                className="relative h-[420px] md:h-[400px]"
                 animate={{
                   flex: isExpanded ? 2 : isOtherExpanded ? 0.6 : 1,
+                }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.12,
+                  ease: smoothEasing
                 }}
               >
                 <motion.div
                   animate={{
-                    backgroundColor:
-                      isExpanded || isHovered ? "#F47B20" : "#FFFFFF",
-                    scale: isHovered && !expandedCard ? 1.02 : 1,
+                    backgroundColor: isExpanded || isHovered ? "#F47B20" : "#FFFFFF",
+                    boxShadow: isHovered && !expandedCard 
+                      ? "0 8px 30px -8px rgba(244, 123, 32, 0.35)" 
+                      : isExpanded 
+                        ? "0 12px 40px -12px rgba(244, 123, 32, 0.4)"
+                        : "0 2px 8px -2px rgba(0, 0, 0, 0.08)",
+                    y: isHovered && !expandedCard ? -4 : 0,
                   }}
                   transition={{
-                    backgroundColor: { duration: 0.3 },
-                    scale: { duration: 0.2 },
+                    backgroundColor: { duration: 0.35, ease: gentleEasing },
+                    boxShadow: { duration: 0.4, ease: gentleEasing },
+                    y: { duration: 0.3, ease: gentleEasing },
                   }}
-                  className="border-2 border-[#F47B20] rounded-[50px] p-8 md:p-10 lg:p-12 h-full flex flex-col gap-6 md:gap-8 cursor-pointer overflow-hidden"
+                  className="border-2 border-[#F47B20] rounded-[50px] p-6 md:p-8 lg:p-10 h-full flex flex-col gap-5 md:gap-6 cursor-pointer overflow-hidden"
                 >
                   {/* Number */}
                   <motion.p
                     animate={{
-                      color:
-                        isExpanded || isHovered ? "#FFFFFF" : "#000000",
+                      color: isExpanded || isHovered ? "#FFFFFF" : "#000000",
                     }}
-                    transition={{ duration: 0.2 }}
-                    className="text-4xl md:text-5xl font-bold"
+                    transition={{ duration: 0.3, ease: gentleEasing }}
+                    className="text-3xl md:text-4xl font-bold"
                   >
                     {card.number}
                   </motion.p>
@@ -130,11 +140,10 @@ export default function HowYouCanGetInvolved() {
                   {/* Title */}
                   <motion.h3
                     animate={{
-                      color:
-                        isExpanded || isHovered ? "#FFFFFF" : "#000000",
+                      color: isExpanded || isHovered ? "#FFFFFF" : "#000000",
                     }}
-                    transition={{ duration: 0.2 }}
-                    className="text-2xl md:text-3xl font-bold"
+                    transition={{ duration: 0.3, ease: gentleEasing }}
+                    className="text-xl md:text-2xl font-bold"
                   >
                     {card.title}
                   </motion.h3>
@@ -143,14 +152,18 @@ export default function HowYouCanGetInvolved() {
                   <AnimatePresence mode="wait">
                     {isOtherExpanded && (
                       <motion.div
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.25, ease: gentleEasing }}
                         className="flex items-center gap-2 text-black font-medium text-lg"
                       >
                         <span>View more</span>
-                        <div className="-rotate-45">
+                        <motion.div 
+                          className="-rotate-45"
+                          whileHover={{ x: 2, y: -2 }}
+                          transition={{ duration: 0.2 }}
+                        >
                           <svg
                             width="20"
                             height="20"
@@ -161,7 +174,7 @@ export default function HowYouCanGetInvolved() {
                           >
                             <path d="M7 17L17 7M17 7H7M17 7V17" />
                           </svg>
-                        </div>
+                        </motion.div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -174,31 +187,46 @@ export default function HowYouCanGetInvolved() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.25 }}
+                        transition={{ duration: 0.3, ease: gentleEasing }}
                         className="flex flex-col flex-1"
                       >
                         {isExpanded ? (
                           /* Expanded State - 2 Column Layout */
-                          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 h-full">
+                          <motion.div 
+                            className="flex flex-col lg:flex-row gap-6 lg:gap-10 h-full"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.1, ease: smoothEasing }}
+                          >
                             {/* Left Column */}
-                            <div className="flex flex-col gap-6 md:gap-8 flex-1">
+                            <motion.div 
+                              className="flex flex-col gap-5 md:gap-6 flex-1"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: 0.15, ease: smoothEasing }}
+                            >
                               {/* Subtitle */}
-                              <p className="text-xl md:text-2xl font-bold leading-snug text-white">
+                              <p className="text-lg md:text-xl font-bold leading-snug text-white">
                                 {card.subtitle}
                               </p>
 
                               {/* Description */}
-                              <p className="text-base md:text-lg leading-relaxed text-white">
+                              <p className="text-sm md:text-base leading-relaxed text-white">
                                 {card.description}
                               </p>
 
                               {/* CTA */}
                               <motion.div
-                                whileHover={{ x: 5 }}
-                                className="flex items-center gap-3 font-medium text-lg text-white mt-auto"
+                                whileHover={{ x: 4 }}
+                                transition={{ duration: 0.2, ease: gentleEasing }}
+                                className="flex items-center gap-2.5 font-medium text-base text-white mt-auto"
                               >
                                 <span>{card.ctaText}</span>
-                                <div className="-rotate-45">
+                                <motion.div 
+                                  className="-rotate-45"
+                                  whileHover={{ x: 2, y: -2 }}
+                                  transition={{ duration: 0.2 }}
+                                >
                                   <svg
                                     width="20"
                                     height="20"
@@ -209,44 +237,56 @@ export default function HowYouCanGetInvolved() {
                                   >
                                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                                   </svg>
-                                </div>
+                                </motion.div>
                               </motion.div>
-                            </div>
+                            </motion.div>
 
                             {/* Right Column - Expanded Details */}
-                            <div className="flex-1">
+                            <motion.div 
+                              className="flex-1"
+                              initial={{ opacity: 0, x: 10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: 0.2, ease: smoothEasing }}
+                            >
                               <div className="text-white">
-                                <p className="text-lg md:text-xl font-semibold mb-4">
+                                <p className="text-base md:text-lg font-semibold mb-3">
                                   {card.id === 1
                                     ? "As a volunteer doctor, you will:"
                                     : card.id === 2
                                     ? "Donations help us:"
                                     : "We collaborate with:"}
                                 </p>
-                                <ul className="space-y-3 text-base md:text-lg">
+                                <ul className="space-y-2.5 text-sm md:text-base">
                                   {card.expandedDetails.map((detail, idx) => (
-                                    <li
+                                    <motion.li
                                       key={idx}
+                                      initial={{ opacity: 0, x: 8 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ 
+                                        duration: 0.3, 
+                                        delay: 0.25 + idx * 0.06,
+                                        ease: smoothEasing 
+                                      }}
                                       className="flex items-start gap-2"
                                     >
                                       <span className="mt-1">•</span>
                                       <span>{detail}</span>
-                                    </li>
+                                    </motion.li>
                                   ))}
                                 </ul>
                               </div>
-                            </div>
-                          </div>
+                            </motion.div>
+                          </motion.div>
                         ) : (
                           /* Normal State - Single Column */
-                          <div className="flex flex-col gap-6 md:gap-8 h-full">
+                          <div className="flex flex-col gap-5 md:gap-6 h-full">
                             {/* Subtitle */}
                             <motion.p
                               animate={{
                                 color: isHovered ? "#FFFFFF" : "#000000",
                               }}
-                              transition={{ duration: 0.2 }}
-                              className="text-xl md:text-2xl font-bold leading-snug"
+                              transition={{ duration: 0.3, ease: gentleEasing }}
+                              className="text-lg md:text-xl font-bold leading-snug"
                             >
                               {card.subtitle}
                             </motion.p>
@@ -256,8 +296,8 @@ export default function HowYouCanGetInvolved() {
                               animate={{
                                 color: isHovered ? "#FFFFFF" : "#000000",
                               }}
-                              transition={{ duration: 0.2 }}
-                              className="text-base md:text-lg leading-relaxed"
+                              transition={{ duration: 0.3, ease: gentleEasing }}
+                              className="text-sm md:text-base leading-relaxed"
                             >
                               {card.description}
                             </motion.p>
@@ -267,12 +307,16 @@ export default function HowYouCanGetInvolved() {
                               animate={{
                                 color: isHovered ? "#FFFFFF" : "#F47B20",
                               }}
-                              transition={{ duration: 0.2 }}
-                              whileHover={{ x: 5 }}
-                              className="flex items-center gap-3 font-medium text-lg mt-auto"
+                              transition={{ duration: 0.3, ease: gentleEasing }}
+                              whileHover={{ x: 4 }}
+                              className="flex items-center gap-2.5 font-medium text-base mt-auto"
                             >
                               <span>{card.ctaText}</span>
-                              <div className="-rotate-45">
+                              <motion.div 
+                                className="-rotate-45"
+                                whileHover={{ x: 2, y: -2 }}
+                                transition={{ duration: 0.2 }}
+                              >
                                 <svg
                                   width="20"
                                   height="20"
@@ -283,7 +327,7 @@ export default function HowYouCanGetInvolved() {
                                 >
                                   <path d="M7 17L17 7M17 7H7M17 7V17" />
                                 </svg>
-                              </div>
+                              </motion.div>
                             </motion.div>
                           </div>
                         )}

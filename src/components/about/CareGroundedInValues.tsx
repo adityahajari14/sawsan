@@ -29,16 +29,16 @@ const values = [
 
 export default function CareGroundedInValues() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-12">
           {/* Left Column */}
           <div className="flex-1 max-w-2xl">
-            <div className="flex flex-col gap-8 md:gap-12">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+            <div className="flex flex-col gap-6 md:gap-10">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
                 Care, Grounded in <span className="text-[#F47B20]">Values</span>
               </h2>
-              <p className="text-lg md:text-xl lg:text-2xl text-black leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl text-black leading-relaxed">
                 Everything we do is rooted in respect for the people we serve. These principles guide our care, our presence with patients, and our growth ensuring compassion, trust, and responsibility in every decision.
               </p>
             </div>
@@ -46,13 +46,13 @@ export default function CareGroundedInValues() {
 
           {/* Right Column - Values List */}
           <div className="flex-1 max-w-2xl">
-            <div className="flex flex-col gap-6 md:gap-8">
+            <div className="flex flex-col gap-5 md:gap-6">
               {values.map((value, index) => (
-                <div key={index} className="flex items-start gap-6">
+                <div key={index} className="flex items-start gap-5">
                   <div className="flex-shrink-0 mt-1">
                     <CheckIcon />
                   </div>
-                  <p className="text-lg md:text-xl lg:text-2xl leading-relaxed">
+                  <p className="text-base md:text-lg lg:text-xl leading-relaxed">
                     <span className="font-bold text-[#F47B20]">{value.text}</span>
                     <span className="text-black">{value.rest}</span>
                   </p>

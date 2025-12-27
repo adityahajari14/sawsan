@@ -20,16 +20,16 @@ const ArrowIcon = () => (
 
 export default function Hero() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24 font-karla">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 font-karla">
       <div className="max-w-8xl mx-auto">
-        <div className="max-w-2xl mx-auto flex flex-col gap-6">
+        <div className="max-w-2xl mx-auto flex flex-col gap-5">
             <div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center">She <span className="text-[#F47B20]">Waited.</span> She <span className="text-[#F47B20]">Hoped.</span></h2>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black text-center">She <span className="text-[#F47B20]">Needed</span> Care.</h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center">She <span className="text-[#F47B20]">Waited.</span> She <span className="text-[#F47B20]">Hoped.</span></h2>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-center">She <span className="text-[#F47B20]">Needed</span> Care.</h2>
             </div>
-            <p className="text-md md:text-lg lg:text-xl text-black text-center">We bring trusted, dignified healthcare directly into underserved Syrian communities, one booth, one volunteer, one doctor, one woman at a time.</p>
+            <p className="text-base md:text-lg lg:text-xl text-black text-center">We bring trusted, dignified healthcare directly into underserved Syrian communities, one booth, one volunteer, one doctor, one woman at a time.</p>
         </div>
-        <div className="flex flex-row gap-6 items-end justify-between -mt-15">
+        <div className="flex flex-row gap-5 items-end justify-between -mt-12">
             <div className="flex flex-col gap-6">
                 <div className="relative flex flex-col gap-8 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden left-path"> 
                     <div className='absolute inset-0 flex items-center justify-center pointer-events-none z-0'>
@@ -43,7 +43,7 @@ export default function Hero() {
                         </div>
                     </div>
                     {/* Content */}
-                    <div className="relative z-10 text-3xl md:text-4xl font-semibold">Rooted in Compassion. Built for Women.</div>
+                    <div className="relative z-10 text-2xl md:text-3xl font-semibold">Rooted in Compassion. Built for Women.</div>
                     <div className="relative z-10 w-full">
                       <button className="group relative h-16 w-full rounded-full overflow-visible transition-all duration-300 ease-in-out cursor-pointer">
                         {/* Outer border layer */}
@@ -66,14 +66,14 @@ export default function Hero() {
                       </button>
                     </div>
                 </div>
-                <div className="bg-black/80 overflow-hidden relative rounded-4xl w-full h-48 md:h-40 max-w-70 flex items-center justify-center px-10">
-                  <p className="font-bold text-3xl text-white text-left">
+                <div className="bg-black/80 overflow-hidden relative rounded-4xl w-full h-40 md:h-36 max-w-70 flex items-center justify-center px-10">
+                  <p className="font-bold text-2xl text-white text-left">
                     More intimate
                   </p>
                 </div>
             </div>
             <div className='flex flex-col justify-end'>
-                <div className="relative flex flex-col gap-8 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden left-path">
+                <div className="relative flex flex-col gap-6 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden left-path">
                     <Image 
                       src="/hero-img1.webp" 
                       alt="Hero 2" 
@@ -83,18 +83,18 @@ export default function Hero() {
                       sizes="(max-width: 768px) 100vw, 295px"
                     />
                     <div className="absolute inset-0 bg-black/50 z-0" style={{ borderRadius: "inherit" }}></div>
-                    <div className="relative z-10 text-xl md:text-2xl font-semibold">Millions of women lack access to female-only health spaces</div>
+                    <div className="relative z-10 text-lg md:text-xl font-semibold">Millions of women lack access to female-only health spaces</div>
                 </div>
             </div>
             <div>
-                <div className="bg-[#F15A24] overflow-hidden relative rounded-4xl w-full h-50 md:h-56 max-w-70 flex items-center justify-center px-10">
-                  <p className="font-bold text-3xl text-white text-left">
+                <div className="bg-[#F15A24] overflow-hidden relative rounded-4xl w-full h-44 md:h-48 max-w-70 flex items-center justify-center px-10">
+                  <p className="font-bold text-2xl text-white text-left">
                     Care, With Dignity at the Center
                   </p>
                 </div>
             </div>
             <div className='flex flex-col justify-end'>
-                <div className="relative flex flex-col gap-8 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden right-path">
+                <div className="relative flex flex-col gap-6 items-center justify-end bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden right-path">
                     <Image 
                       src="/hero-img2.webp" 
                       alt="Hero 2" 
@@ -104,11 +104,11 @@ export default function Hero() {
                       sizes="(max-width: 768px) 100vw, 295px"
                     />
                     <div className="absolute inset-0 bg-black/50 z-0" style={{ borderRadius: "inherit" }}></div>
-                    <div className="relative z-10 text-xl md:text-2xl font-semibold">One missed visit can be fatal</div>
+                    <div className="relative z-10 text-lg md:text-xl font-semibold">One missed visit can be fatal</div>
                 </div>
             </div>
-            <div className="flex flex-col gap-6">
-                <div className="relative flex flex-col gap-8 items-center justify-between pt-20 bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden right-path"> 
+            <div className="flex flex-col gap-5">
+                <div className="relative flex flex-col gap-6 items-center justify-between pt-20 bg-[#F15A24] text-white p-4 rounded-4xl min-h-100 w-full max-w-70 overflow-hidden right-path"> 
                     <div className='absolute inset-0 flex items-center justify-center pointer-events-none z-0'>
                         <div className='flex flex-col items-center justify-center gap-2 w-full h-full'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="295" height="73" viewBox="0 0 295 73" fill="none" className="w-full h-auto opacity-10">
@@ -129,7 +129,7 @@ export default function Hero() {
                       sizes="(max-width: 768px) 100vw, 295px"
                     />
                     <div className="absolute inset-0 bg-black/20 z-0" style={{ borderRadius: "inherit" }}></div>
-                    <div className="relative z-10 text-3xl md:text-4xl font-semibold">Gallery</div>
+                    <div className="relative z-10 text-2xl md:text-3xl font-semibold">Gallery</div>
                     <div className="relative z-10 w-full">
                       <button className="group relative h-16 w-full rounded-full overflow-visible transition-all duration-300 ease-in-out cursor-pointer">
                         {/* Outer border layer */}
@@ -152,8 +152,8 @@ export default function Hero() {
                       </button>
                     </div>
                 </div>
-                <div className="bg-black/80 overflow-hidden relative rounded-4xl w-full h-48 md:h-40 max-w-70 flex items-center justify-center px-10">
-                  <p className="font-bold text-3xl text-white text-left">
+                <div className="bg-black/80 overflow-hidden relative rounded-4xl w-full h-40 md:h-36 max-w-70 flex items-center justify-center px-10">
+                  <p className="font-bold text-2xl text-white text-left">
                   Less institutional.
                   </p>
                 </div>

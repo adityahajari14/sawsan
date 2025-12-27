@@ -109,13 +109,13 @@ export default function WhyThisMatters() {
   );
 
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12 md:mb-16 lg:mb-20">
+        <div className="mb-10 md:mb-12 lg:mb-16">
           <h2 
             ref={headingRef}
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-8"
+            className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6"
           >
             <HeadingText 
               words={headingWords} 
@@ -133,40 +133,40 @@ export default function WhyThisMatters() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center">
           {/* Left Column - Stats Cards */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-5">
             {/* Stat 1 */}
-            <div className="border-2 border-[#F47B20] rounded-2xl p-8 md:p-10 lg:p-12">
-              <div className="mb-6">
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F47B20] mb-4">
+            <div className="border-2 border-[#F47B20] rounded-2xl p-6 md:p-8 lg:p-10">
+              <div className="mb-4">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20] mb-3">
                   6M+
                 </h3>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-900 font-normal">
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-900 font-normal">
                   Women and girls in need of basic health services
                 </p>
               </div>
             </div>
 
             {/* Stat 2 */}
-            <div className="border-2 border-[#F47B20] rounded-2xl p-8 md:p-10 lg:p-12">
-              <div className="mb-6">
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F47B20] mb-4">
+            <div className="border-2 border-[#F47B20] rounded-2xl p-6 md:p-8 lg:p-10">
+              <div className="mb-4">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20] mb-3">
                   50%+
                 </h3>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-900 font-normal">
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-900 font-normal">
                   Healthcare facilities damaged or non-functional
                 </p>
               </div>
             </div>
 
             {/* Stat 3 */}
-            <div className="border-2 border-[#F47B20] rounded-2xl p-8 md:p-10 lg:p-12">
-              <div className="mb-6">
-                <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#F47B20] mb-4">
+            <div className="border-2 border-[#F47B20] rounded-2xl p-6 md:p-8 lg:p-10">
+              <div className="mb-4">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20] mb-3">
                   0
                 </h3>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-900 font-normal">
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-900 font-normal">
                   Privacy in overcrowded clinics
                 </p>
               </div>
@@ -174,10 +174,10 @@ export default function WhyThisMatters() {
           </div>
 
           {/* Right Column - Description Text */}
-          <div className="lg:col-span-5 lg:pl-8">
+          <div className="lg:col-span-5 lg:pl-6">
             <p 
               ref={paragraphRef}
-              className="text-3xl md:text-4xl lg:text-5xl leading-relaxed font-semibold"
+              className="text-2xl md:text-3xl lg:text-4xl leading-relaxed font-semibold"
             >
               <ParagraphText 
                 words={paragraphWords} 

@@ -14,24 +14,24 @@ export default function Header() {
 
     return (
         <header className="sticky top-0 z-50 bg-white shadow-sm">
-            <div className="flex items-center justify-between px-4 md:px-6 lg:px-8 py-3 md:py-4 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between px-6 md:px-8 lg:px-12 py-3 md:py-4 max-w-7xl mx-auto">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
                     <Image
                         src="/logo.webp"
                         alt="Sawsan Logo"
-                        width={180}
-                        height={90}
-                        className="h-12 md:h-14 lg:h-16 w-auto"
+                        width={200}
+                        height={100}
+                        className="h-14 md:h-16 lg:h-20 w-auto"
                         priority
                     />
                 </Link>
 
                 {/* Navigation */}
-                <nav className="hidden md:flex items-center gap-8 lg:gap-12">
+                <nav className="hidden md:flex items-center gap-6 lg:gap-8">
                     <Link
                         href="/about"
-                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                        className={`font-normal text-sm lg:text-base tracking-wide transition-colors ${
                             isActive('/about')
                                 ? 'text-[#F47B20] font-bold'
                                 : 'text-gray-600 hover:text-[#F47B20]'
@@ -41,7 +41,7 @@ export default function Header() {
                     </Link>
                     <Link
                         href="/donation"
-                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                        className={`font-normal text-sm lg:text-base tracking-wide transition-colors ${
                             isActive('/donation')
                                 ? 'text-[#F47B20] font-bold'
                                 : 'text-gray-600 hover:text-[#F47B20]'
@@ -51,7 +51,7 @@ export default function Header() {
                     </Link>
                     <Link
                         href="/our-model"
-                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                        className={`font-normal text-sm lg:text-base tracking-wide transition-colors ${
                             isActive('/our-model')
                                 ? 'text-[#F47B20] font-bold'
                                 : 'text-gray-600 hover:text-[#F47B20]'
@@ -61,7 +61,7 @@ export default function Header() {
                     </Link>
                     <Link
                         href="/impact"
-                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                        className={`font-normal text-sm lg:text-base tracking-wide transition-colors ${
                             isActive('/impact')
                                 ? 'text-[#F47B20] font-bold'
                                 : 'text-gray-600 hover:text-[#F47B20]'
@@ -71,7 +71,7 @@ export default function Header() {
                     </Link>
                     <Link
                         href="/get-involved"
-                        className={`font-normal text-base lg:text-lg tracking-wide transition-colors ${
+                        className={`font-normal text-sm lg:text-base tracking-wide transition-colors ${
                             isActive('/get-involved')
                                 ? 'text-[#F47B20] font-bold'
                                 : 'text-gray-600 hover:text-[#F47B20]'

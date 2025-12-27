@@ -64,21 +64,21 @@ export default function OurModel() {
   };
 
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 xl:gap-12 items-start">
           {/* Left Column - Header */}
-          <div className="space-y-4 lg:space-y-6">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20]">
+          <div className="space-y-3 lg:space-y-5">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F47B20]">
               Our Model
             </h2>
-            <p className="text-lg md:text-xl text-[#F47B20] leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-[#F47B20] leading-relaxed max-w-xl">
               Every person deserves respect in every interaction. Care is only credible when humanity comes first.
             </p>
           </div>
 
           {/* Right Column - Accordion */}
-          <div className="space-y-3 max-w-xl lg:ml-auto">
+          <div className="space-y-2.5 max-w-xl lg:ml-auto">
             {accordionItems.map((item) => {
               const isOpen = openItems.has(item.id);
               const isDigital = item.id === 'digital';
@@ -94,7 +94,7 @@ export default function OurModel() {
                       : isDigital
                         ? 'border-2 border-gray-400 bg-white'
                         : `${item.bgColor} ${item.hoverColor} ${item.textColor}`
-                  } rounded-xl px-5 py-4 cursor-pointer overflow-hidden`}
+                  } rounded-xl px-4 py-3.5 cursor-pointer overflow-hidden`}
                   onClick={() => toggleItem(item.id)}
                   initial={false}
                   animate={{
@@ -105,7 +105,7 @@ export default function OurModel() {
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                 >
                   <div className="flex items-start justify-between">
-                    <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold pr-4 ${isOpen && isDigital ? 'text-gray-900' : item.textColor}`}>
+                    <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold pr-4 ${isOpen && isDigital ? 'text-gray-900' : item.textColor}`}>
                       {item.title}
                     </h3>
                     <motion.div 

@@ -58,26 +58,26 @@ const changeItems: ChangeItem[] = [
 
 export default function WhatWeChangeSection() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="space-y-12 lg:space-y-16">
+        <div className="space-y-10 lg:space-y-12">
           {/* Header */}
           <div className="max-w-2xl space-y-2">
-            <h2 className="text-4xl md:text-3xl lg:text-5xl font-bold text-black leading-tight">
+            <h2 className="text-3xl md:text-2xl lg:text-4xl font-bold text-black leading-tight">
               <span>What We </span>
               <span className="text-[#F47B20]">Change</span>
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-black leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-black leading-relaxed">
               We bring care closer physically and emotionally.
             </p>
           </div>
 
           {/* Grid of Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
             {changeItems.map((item, index) => (
               <div 
                 key={index}
-                className="border-2 border-[#F47B20] rounded-3xl p-8 lg:p-10 flex flex-col gap-8 min-h-60"
+                className="border-2 border-[#F47B20] rounded-3xl p-6 lg:p-8 flex flex-col gap-6 min-h-52"
               >
                 {/* Icon */}
                 <div className="w-18 h-18 bg-[#F47B20] rounded-full flex items-center justify-center shrink-0">
@@ -85,7 +85,7 @@ export default function WhatWeChangeSection() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-black leading-tight">
+                <h3 className="text-xl md:text-2xl font-bold text-black leading-tight">
                   {item.title}
                 </h3>
               </div>

@@ -40,15 +40,15 @@ const cards = [
 
 export default function HowWeWork() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col gap-12 md:gap-16 lg:gap-20">
+        <div className="flex flex-col gap-10 md:gap-12 lg:gap-16">
           {/* Header */}
-          <div className="flex flex-col gap-8 md:gap-12">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black max-w-4xl">
+          <div className="flex flex-col gap-6 md:gap-10">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black max-w-4xl">
               How We Work
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-black leading-relaxed max-w-4xl">
+            <p className="text-base md:text-lg lg:text-xl text-black leading-relaxed max-w-4xl">
               <span>We combine </span>
               <span className="font-bold text-[#F47B20]">safe physical spaces</span>
               <span>, </span>
@@ -60,29 +60,29 @@ export default function HowWeWork() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {cards.map((card, index) => (
               <div 
                 key={index}
-                className="bg-white border border-[#F47B20] rounded-[25px] p-8 flex flex-col justify-between min-h-[471px]"
+                className="bg-white border border-[#F47B20] rounded-[25px] p-6 flex flex-col justify-between min-h-[420px]"
               >
-                <div className="flex flex-col gap-8">
-                  <p className="text-[51px] font-bold text-black leading-none">
+                <div className="flex flex-col gap-6">
+                  <p className="text-[42px] font-bold text-black leading-none">
                     {card.number}
                   </p>
                   <div>
-                    <p className="text-[20px] font-bold text-[#F47B20] mb-1">{card.title}</p>
-                    <p className="text-[20px] text-black">{card.subtitle}</p>
+                    <p className="text-[17px] font-bold text-[#F47B20] mb-1">{card.title}</p>
+                    <p className="text-[17px] text-black">{card.subtitle}</p>
                   </div>
-                  <p className="text-[20px] text-black leading-normal">
+                  <p className="text-[17px] text-black leading-normal">
                     {card.description}
                   </p>
                 </div>
                 <Link
                   href="#"
-                  className="flex items-center gap-3 text-[#F47B20] hover:text-[#E85A28] transition-colors group mt-8"
+                  className="flex items-center gap-2.5 text-[#F47B20] hover:text-[#E85A28] transition-colors group mt-6"
                 >
-                  <span className="text-[20px] font-medium leading-[26px] tracking-[-0.8px]">
+                  <span className="text-[17px] font-medium leading-[24px] tracking-[-0.7px]">
                     {card.link}
                   </span>
                   <div className="flex-shrink-0">

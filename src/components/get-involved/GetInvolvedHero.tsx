@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 export default function GetInvolvedHero() {
   return (
-    <section className="bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-8 md:gap-12"
+          className="flex flex-col gap-6 md:gap-10"
         >
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             <span className="block text-black">Stand With Women.</span>
             <span className="block text-black">Restore Care With Dignity.</span>
           </h1>
 
           {/* Description */}
-          <div className="text-lg md:text-xl lg:text-2xl leading-relaxed text-black max-w-4xl">
+          <div className="text-base md:text-lg lg:text-xl leading-relaxed text-black max-w-4xl">
             <p className="mb-4">
               There are many ways to be part of this work. Each one matters.
             </p>

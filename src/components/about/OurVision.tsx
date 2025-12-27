@@ -9,13 +9,13 @@ const ArrowIcon = () => (
 
 export default function OurVision() {
   return (
-    <section className="w-full bg-white px-4 md:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center gap-8 md:gap-12 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F47B20]">
+        <div className="flex flex-col items-center gap-6 md:gap-10 text-center">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#F47B20]">
             Our Vision
           </h2>
-          <p className="text-lg md:text-xl lg:text-2xl text-black leading-relaxed max-w-4xl">
+          <p className="text-base md:text-lg lg:text-xl text-black leading-relaxed max-w-4xl">
             We are building something women can rely on. A foundation they recognize and return to. Care that grows with integrity, without losing its human center.
           </p>
           <Link
