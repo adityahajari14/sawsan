@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLoader } from '@/contexts/LoaderContext';
 
 const smoothEasing: [number, number, number, number] = [0.4, 0, 0.2, 1];
 
@@ -47,6 +48,8 @@ const ArrowIcon = () => (
 );
 
 export default function Hero() {
+  const { hasLoadedOnce } = useLoader();
+
   return (
     <section className="w-full bg-white px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 font-karla">
       <div className="max-w-8xl mx-auto">
@@ -61,7 +64,7 @@ export default function Hero() {
           className="flex flex-row gap-5 items-end justify-between -mt-12"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
+          animate={hasLoadedOnce ? "visible" : "hidden"}
           viewport={{ once: true, margin: "-100px" }}
         >
             {/* Card Column 1 */}
